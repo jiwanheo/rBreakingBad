@@ -1,9 +1,9 @@
 Package: rBreakingBad
-Title: What the Package Does (One Line, Title Case)
+Title: Breaking Bad Quotes on Demand!
 Version: 0.0.0.9000
 Authors@R: 
     person("Jiwan", "Heo", , "jiwanheo123@gmail.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Description: R Wrapper around the breaking bad quote API
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
