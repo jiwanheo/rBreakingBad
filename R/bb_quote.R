@@ -7,7 +7,6 @@
 #' @param quote_id Look up a quote by id.
 #' @param quote_by Look up a quote by character in the show.
 #' @return an S3 object
-#' @importFrom magrittr %>%
 #' @export
 #'
 bb_quote <- function(quote_id = NULL, quote_by = NULL) {
