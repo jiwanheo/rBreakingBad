@@ -4,10 +4,12 @@
 \alias{bb_quote}
 \title{Retrieve a Random Breaking Bad Quote}
 \usage{
-bb_quote(quote_id = NULL)
+bb_quote(quote_id = NULL, quote_by = NULL)
 }
 \arguments{
-\item{quote_id}{A specific quote ID to return}
+\item{quote_id}{Look up a quote by id.}
+
+\item{quote_by}{Look up a quote by character in the show.}
 }
 \value{
 an S3 object

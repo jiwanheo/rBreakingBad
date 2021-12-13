@@ -4,17 +4,30 @@
 #' \url{https://breakingbadapi.com} and returns an S3 object containing the
 #' parsed request result and the request itself.
 #'
-#' @param quote_id A specific quote ID to return
+#' @param quote_id Look up a quote by id.
+#' @param quote_by Look up a quote by character in the show.
 #' @return an S3 object
 #' @importFrom magrittr %>%
 #' @export
 #'
-bb_quote <- function(quote_id = NULL) {
+bb_quote <- function(quote_id = NULL, quote_by = NULL) {
 
   url <- "https://www.breakingbadapi.com/api"
 
-  # If `quote_id` is given, look up quote by id. If not, return random
-  path <- if(is.null(quote_id)) "/quote/random" else paste0("/quotes/", quote_id)
+  # Determine endpoint.
+
+  # If `quote_id` or `quote_by` is given, look up quote by id/name.
+  # If not, return random quote.
+  # When both `quote_id` and `quote_by` are provided, `quote_by` will be ignored.
+  if(!is.null(quote_id)) {
+    path <- paste0("/quotes/", quote_id)
+  }
+  else if(!is.null(quote_by)) {
+    path <- paste0("/quote?author=", gsub(" ", "+", quote_by))
+  }
+  else {
+    path <- "/quote/random"
+  }
   url <- paste0(url, path)
 
   resp <- httr::GET(url)
@@ -23,7 +36,10 @@ bb_quote <- function(quote_id = NULL) {
   }
 
   # parse the response, grab the first item in the list of lists
-  parsed <- jsonlite::fromJSON(httr::content(resp, "text"), simplifyVector = FALSE)[[1]]
+  parsed <- jsonlite::fromJSON(httr::content(resp, "text"), simplifyVector = FALSE)
+
+  # Only return 1 quote. (author endpoint returns more than 1 quotes)
+  parsed <- parsed[[sample(1:length(parsed), 1)]]
 
   # S3 object to return both content and response
   structure(
@@ -56,13 +72,14 @@ print.bb_api <- function(x, ...) {
 #' \url{https://breakingbadapi.com} as a single character vector. It first
 #' messages the quote and invisibly returns it.
 #'
-#' @param quote_id A specific quote ID to return
+#' @param quote_id Look up a quote by id.
+#' @param quote_by Look up a quote by character in the show.
 #' @param message A boolean. If TRUE, the quote is messaged to console.
 #' @return a character vector
 #' @export
 #'
-one_who_knocks <- function(quote_id = NULL, message = TRUE) {
-  quote_ <- rBreakingBad::bb_quote(quote_id)$content
+one_who_knocks <- function(quote_id = NULL, quote_by = NULL, message = TRUE) {
+  quote_ <- rBreakingBad::bb_quote(quote_id, quote_by = NULL)$content
   output <- paste(quote_$quote, "-", quote_$author)
 
   if(message == TRUE) message(output)

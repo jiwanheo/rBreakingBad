@@ -4,10 +4,12 @@
 \alias{one_who_knocks}
 \title{Print a Breaking Bad Quote and Author}
 \usage{
-one_who_knocks(quote_id = NULL, message = TRUE)
+one_who_knocks(quote_id = NULL, quote_by = NULL, message = TRUE)
 }
 \arguments{
-\item{quote_id}{A specific quote ID to return}
+\item{quote_id}{Look up a quote by id.}
+
+\item{quote_by}{Look up a quote by character in the show.}
 
 \item{message}{A boolean. If TRUE, the quote is messaged to console.}
 }
