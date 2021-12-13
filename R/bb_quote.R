@@ -1,15 +1,21 @@
-#' Function to return a random quote
+#' Retrieve a Random Breaking Bad Quote
 #'
-#' This function returns a random quote from
-#' \url{https://breakingbadapi.com}. It first messages the quote and invisibly
-#' returns it as a character.
+#' This function retrieves a random quote from
+#' \url{https://breakingbadapi.com} and returns an S3 object containing the
+#' parsed request result and the request itself.
 #'
-#' @return Invisibly returns the first item holding the quote as a character.
+#' @param quote_id A specific quote ID to return
+#' @return an S3 object
 #' @importFrom magrittr %>%
 #' @export
 #'
-bb_quote <- function() {
-  url <- "https://www.breakingbadapi.com/api/quote/random"
+bb_quote <- function(quote_id = NULL) {
+
+  url <- "https://www.breakingbadapi.com/api"
+
+  # If `quote_id` is given, look up quote by id. If not, return random
+  path <- if(is.null(quote_id)) "/quote/random" else paste0("/quotes/", quote_id)
+  url <- paste0(url, path)
 
   resp <- httr::GET(url)
   if (httr::http_type(resp) != "application/json") {
@@ -23,11 +29,11 @@ bb_quote <- function() {
   structure(
     list(
       content = parsed,
+      path = path,
       response = resp
     ),
     class = "bb_api"
   )
-
 }
 
 # Print method for bb_api object
@@ -37,7 +43,7 @@ bb_quote <- function() {
 #' @export
 #'
 print.bb_api <- function(x, ...) {
-  cat("<Breaking Bad ", ">\n", sep = "")
+  cat("<Breaking Bad ", x$path, ">\n", sep = "")
   str(x$content)
   invisible(x)
 }
@@ -48,13 +54,15 @@ print.bb_api <- function(x, ...) {
 #' \url{https://breakingbadapi.com} as a single character vector. It first
 #' messages the quote and invisibly returns it.
 #'
+#' @param quote_id A specific quote ID to return
+#' @param message A boolean. If TRUE, the quote is messaged to console.
 #' @return a character vector
 #' @export
 #'
-one_who_knocks <- function() {
-  quote_ <- rBreakingBad::bb_quote()$content
+one_who_knocks <- function(quote_id = NULL, message = TRUE) {
+  quote_ <- rBreakingBad::bb_quote(quote_id)$content
   output <- paste(quote_$quote, "-", quote_$author)
 
-  message(output)
+  if(message == TRUE) message(output)
   invisible(output)
 }

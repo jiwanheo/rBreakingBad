@@ -4,7 +4,12 @@
 \alias{one_who_knocks}
 \title{Print a Breaking Bad Quote and Author}
 \usage{
-one_who_knocks()
+one_who_knocks(quote_id = NULL, message = TRUE)
+}
+\arguments{
+\item{quote_id}{A specific quote ID to return}
+
+\item{message}{A boolean. If TRUE, the quote is messaged to console.}
 }
 \value{
 a character vector

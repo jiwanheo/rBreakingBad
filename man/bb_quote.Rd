@@ -2,15 +2,18 @@
 % Please edit documentation in R/bb_quote.R
 \name{bb_quote}
 \alias{bb_quote}
-\title{Function to return a random quote}
+\title{Retrieve a Random Breaking Bad Quote}
 \usage{
-bb_quote()
+bb_quote(quote_id = NULL)
+}
+\arguments{
+\item{quote_id}{A specific quote ID to return}
 }
 \value{
-Invisibly returns the first item holding the quote as a character.
+an S3 object
 }
 \description{
-This function returns a random quote from
-\url{https://breakingbadapi.com}. It first messages the quote and invisibly
-returns it as a character.
+This function retrieves a random quote from
+\url{https://breakingbadapi.com} and returns an S3 object containing the
+parsed request result and the request itself.
 }
