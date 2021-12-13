@@ -2,5 +2,6 @@
 
 S3method(print,bb_api)
 export(bb_quote)
+export(one_who_knocks)
 importFrom(magrittr,"%>%")
 importFrom(utils,str)
