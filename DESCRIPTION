@@ -3,9 +3,13 @@ Title: Breaking Bad Quotes on Demand!
 Version: 0.0.0.9000
 Authors@R: 
     person("Jiwan", "Heo", , "jiwanheo123@gmail.com", role = c("aut", "cre"))
-Description: R Wrapper around the breaking bad quote API
+Description: R Wrapper around the breaking bad quote API.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
+Imports: 
+    httr,
+    jsonlite,
+    magrittr
