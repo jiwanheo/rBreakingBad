@@ -19,15 +19,18 @@ remotes::install_github("jiwanheo/rBreakingBad")
 ## Usage
 
 The main function of this package is `one_who_knocks`. By default, it
-messages and invisibly returns one random quote by any of the main
-characters in the show. It can also take a `quote_id` argument, which
-specifies the quote to return.
+messages and invisibly returns one random quote from the show. It can
+take a `quote_id` argument, which can look up and return a quote by ID,
+as well as `quote_by` argument, that takes a name of a character, and
+returns a random quote from them.
 
 ``` r
 library(rBreakingBad)
 
-one_who_knocks(quote_id = NULL, message = TRUE)
-#> I'm a lawyer, not a criminal - Jimmy McGill
-one_who_knocks(quote_id = 1, message = TRUE)
+one_who_knocks()
+#> Shut up! Shut up! Shut up! - Skyler White
+one_who_knocks(quote_id = 1)
 #> I am not in danger, Skyler. I am the danger! - Walter White
+one_who_knocks(quote_by = "Jesse Pinkman")
+#> Yeah, totally Kafkaesque - Jesse Pinkman
 ```
