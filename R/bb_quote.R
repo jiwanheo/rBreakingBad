@@ -79,7 +79,7 @@ print.bb_api <- function(x, ...) {
 #' @export
 #'
 one_who_knocks <- function(quote_id = NULL, quote_by = NULL, message = TRUE) {
-  quote_ <- rBreakingBad::bb_quote(quote_id, quote_by = NULL)$content
+  quote_ <- rBreakingBad::bb_quote(quote_id, quote_by)$content
   output <- paste(quote_$quote, "-", quote_$author)
 
   if(message == TRUE) message(output)
