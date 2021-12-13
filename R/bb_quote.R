@@ -36,8 +36,10 @@ bb_quote <- function(quote_id = NULL) {
   )
 }
 
-# Print method for bb_api object
-
+#' Print method for bb_api object
+#'
+#' This is a print method for the S3 bb_api object.
+#'
 #' @noRd
 #' @importFrom utils str
 #' @export
