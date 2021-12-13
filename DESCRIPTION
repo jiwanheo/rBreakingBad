@@ -1,9 +1,14 @@
 Package: rBreakingBad
-Title: Breaking Bad Quotes on Demand!
+Title: Get Breaking Bad Quotes!
 Version: 0.0.0.9000
 Authors@R: 
-    person("Jiwan", "Heo", , "jiwanheo123@gmail.com", role = c("aut", "cre"))
-Description: R Wrapper around the breaking bad quote API.
+    person("Jiwan", ,"Heo", "jiwanheo123@gmail.com", role = c("aut", "cre"))
+URL: https://github.com/jiwanheo/rBreakingBad/
+BugReports: https://github.com/jiwanheo/rBreakingBad/issues/
+Maintainer: Jiwan Heo <jiwanheo123@gmail.com>
+Description: An R Wrapper around the breaking bad quote API. This package 
+    utilizes <https://breakingbadapi.com/> to return quotes from the TV show
+    at several endpoints.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

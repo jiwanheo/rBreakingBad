@@ -20,6 +20,8 @@ knitr::opts_chunk$set(
 
 An R package to get Breaking Bad quotes!
 
+This package is an R wrapper around [Tim Biles](https://timbilestim.netlify.app/)' excellent [API](https://breakingbadapi.com/).
+
 ![](https://media.giphy.com/media/3oFzmkkwfOGlzZ0gxi/giphy.gif)
 
 ## Installation

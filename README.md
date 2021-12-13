@@ -8,6 +8,10 @@
 
 An R package to get Breaking Bad quotes!
 
+This package is an R wrapper around [Tim
+Biles](https://timbilestim.netlify.app/)’ excellent
+[API](https://breakingbadapi.com/).
+
 ![](https://media.giphy.com/media/3oFzmkkwfOGlzZ0gxi/giphy.gif)
 
 ## Installation
@@ -38,5 +42,5 @@ quote from them.
 one_who_knocks(quote_id = 1)
 #> I am not in danger, Skyler. I am the danger! - Walter White
 one_who_knocks(quote_by = "Jesse Pinkman")
-#> Hey, you girls. Want to meet my fat stack? - Jesse Pinkman
+#> We make poison for people who don’t care. We probably have the most unpicky customers in the world. - Jesse Pinkman
 ```
