@@ -18,21 +18,22 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of rBreakingBad is to ...
+An R package to get Breaking Bad quotes!
+
+![](https://media.giphy.com/media/3oFzmkkwfOGlzZ0gxi/giphy.gif)
 
 ## Installation
 
-You can install the released version of rBreakingBad from [CRAN](https://CRAN.R-project.org) with:
-
 ``` r
-install.packages("rBreakingBad")
+remotes::install_github("jiwanheo/rBreakingBad")
 ```
 
-## Example
+## Usage
 
-This is a basic example which shows you how to solve a common problem:
+The main function of this package is `one_who_knocks`. By default, it messages and invisibly returns one random quote by any of the main characters in the show. It can also take a `quote_id` argument, which specifies the quote to return.
 
 ```{r example}
 library(rBreakingBad)
-## basic example code
+
+one_who_knocks(quote_id = NULL, message = TRUE)
 ```
