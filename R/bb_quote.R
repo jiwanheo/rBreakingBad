@@ -41,3 +41,20 @@ print.bb_api <- function(x, ...) {
   str(x$content)
   invisible(x)
 }
+
+#' Print a Breaking Bad Quote and Author
+#'
+#' This function returns a random quote and its author from
+#' \url{https://breakingbadapi.com} as a single character vector. It first
+#' messages the quote and invisibly returns it.
+#'
+#' @return a character vector
+#' @export
+#'
+one_who_knocks <- function() {
+  quote_ <- rBreakingBad::bb_quote()$content
+  output <- paste(quote_$quote, "-", quote_$author)
+
+  message(output)
+  invisible(output)
+}
