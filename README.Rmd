@@ -36,4 +36,5 @@ The main function of this package is `one_who_knocks`. By default, it messages a
 library(rBreakingBad)
 
 one_who_knocks(quote_id = NULL, message = TRUE)
+one_who_knocks(quote_id = 1, message = TRUE)
 ```

@@ -27,5 +27,7 @@ specifies the quote to return.
 library(rBreakingBad)
 
 one_who_knocks(quote_id = NULL, message = TRUE)
-#> Yeah, b****! Magnets! - Jesse Pinkman
+#> I'm a lawyer, not a criminal - Jimmy McGill
+one_who_knocks(quote_id = 1, message = TRUE)
+#> I am not in danger, Skyler. I am the danger! - Walter White
 ```
