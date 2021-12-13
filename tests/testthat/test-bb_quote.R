@@ -1,3 +1,5 @@
+skip_on_cran()
+
 x <- rBreakingBad::bb_quote()
 x_id <- rBreakingBad::bb_quote(quote_id = 5)
 x_author <- rBreakingBad::bb_quote(quote_by = "Jesse Pinkman")

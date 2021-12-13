@@ -1,3 +1,5 @@
+skip_on_cran()
+
 x <- rBreakingBad::one_who_knocks(message = FALSE)
 x_id <- rBreakingBad::one_who_knocks(quote_id = 5, message = FALSE)
 
